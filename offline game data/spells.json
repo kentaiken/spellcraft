@@ -1,0 +1,49 @@
+{"spells" :{
+	"heal" :
+	{
+		"mana" : 2,
+		"life" : 0,
+		"oplifechange" : 0,
+		"plifechange": 3,
+		"opmanachange":0,
+		"pmanachange":-2,
+		"description":"Caster gains 3 life.",
+		"img-url":"images/spells/heal.png"
+
+	},
+	"flameblast":
+	{
+		"mana" : 2,
+		"life" : 0,
+		"oplifechange" : -2,
+		"plifechange":0,
+		"opmanachange":0,
+		"pmanachange":-2,
+		"description":"Inflicts 2 damage on opponent.",
+		"img-url":"images/spells/flameblast.png"
+	}
+	,
+	"manadrain":
+	{
+		"mana":0,
+		"life":1,
+		"oplifechange":0,
+		"plifechange":-1,
+		"pmanachange":2,
+		"description":"Caster losses 1 life, gaining 2 mana.",
+		"img-url":"images/spells/manadrain.png"
+	}
+	,
+	"cloudcanon":
+	{
+		"mana":4,
+		"life":1,
+		"oplifechange":-4,
+		"plifechange":-1,
+		"opmanachange":0,
+		"pmanachange":-4,
+		"description":"Caster sacrifices 1 life to summons a large spike ball, dealing opponent 4 damage."
+	}
+}
+}
+		
