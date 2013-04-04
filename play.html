@@ -108,6 +108,9 @@
 
 <body>
 	
+	<div class = 'Header'>
+		<span class ='headertext'>SpellCraft <span class='miniText'>Alpha</span></span>
+	</div>
 	<div class ='Container' id ='tainer'>
 	
 		<div class = 'StatusScreen'>
@@ -115,16 +118,13 @@
 			<div class = 'EnemyInfo'>
 				
  				 <img class = 'EnemyDisplayPic' id = 'p1_image' src = "public/images/userTest.png" href = '#' />
-				 <div class = 'EnemyName' id = 'p1_name'>
-				  Name
-				 </div>
-				
-			</div>
-			
-			<div class = 'EnemyStatus'>
-				
+				 
+			  	<div class = 'EnemyStatus'>
+
+					<img class = 'lifePic' src="css/images/lifePic.png">	</img>
 				<p class = 'Life' id = "EnemyLife" >10</p>
 				  
+					<img class = 'manaPic' src ="css/images/manaPic.png"> </img>
 				<p class = 'Mana' id = "EnemyMana" >10</p> 
 
 				<div class = 'StatusBars'>
@@ -138,30 +138,37 @@
 					</div>
 				</div>
 				 
-            </div>
+			</div>
+			<div class = 'EnemyName' id = 'p1_name'>
+				  Name
+			  </div>
+			
+
+			  
+		
+				
+			</div>
+			
 			
 			<div class = 'EnemyExtras'>
-				
+				<p class = 'extrasText'>Haven't decided what to place in here.</p>
+				<p class = 'extrasText'>The spell cards chosen by the player for the turn is a good choice though.</p>
 			</div>
 			
 
 			<div class = 'GameStatus'>
-				<a onclick="updateStatus('Enemy',-5,-10)" href='#' class='normalText'>Attack Enemy !!</a>
+				<p onclick="updateStatus('Enemy',-5,-10)" class='extrasText'>Attack Enemy !!</p>
 			</div>
 			
 			<div class = 'PlayerInfo'>
 			
  				 <img id = 'p2_image' class = 'PlayerDisplayPic' src = "public/images/userTest.png" href = '#' />
- 				 <div class = 'PlayerName' id = 'p2_name' >
-					 Name
-				 </div>
-			
-			</div>
-			
-			<div class = 'PlayerStatus'>
+ 			
+				 <div class = 'PlayerStatus'>
+					 <img class = 'lifePic' src="css/images/lifePic.png">	</img>
 				
 				<p class = 'Life' id = 'PlayerLife' >10</p>
-				  
+				  <img class = 'manaPic' src ="css/images/manaPic.png"> </img>
 				 <p class = 'Mana' id = 'PlayerMana' >10</p>
 				
 				<div class = 'StatusBars'>
@@ -174,10 +181,21 @@
 						</div>
 					</div>
 				</div>	
+				
+			
+			</div>	
+			<div class = 'PlayerName' id = 'p2_name' >
+					 Name
+				 </div>
 				 
 			</div>
 			
+			
+			
+			
 			<div class = 'PlayerExtras'>
+				<p class = 'extrasText'>Haven't decided what to place in here.</p>
+				<p class = 'extrasText'>The spell cards chosen by the player for the turn is a good choice though.</p>
 			</div>
 			
 		</div>
@@ -185,13 +203,13 @@
 		<div class = 'GamePanel'>
 			<div class = 'SpellInfo'>
 				<div class = 'SpellInfoContainer'> 
-					<p class = 'normalText' style="color:cyan;"id = 'spellName'></p>
+					<p class = 'infoText' style="color:cyan;"id = 'spellName'></p>
 					</br>
-					<p class='normalText' id='spellLife'> </p>
+					<p class='infoText' id='spellLife'> </p>
 					</br>
-					<p class='normalText' id='spellMana'> </p>
+					<p class='infoText' id='spellMana'> </p>
 					</br>
-					<p class='normalText' id = 'spellInfo'></p>
+					<p class='infoText' id = 'spellInfo'></p>
 					<div class = 'SpellInfoAbility'>
 
 					</div>
@@ -207,12 +225,19 @@
 						<img class = 'SpellListIcon' src = 'public/images/spells/flameblast.png' href = "#" />
 						<img class = 'SpellListIcon' src = 'public/images/spells/manadrain.png' href = "#" />
 						<img class = 'SpellListIcon' src = 'public/images/spells/cloudcanon.png' href = "#" />
-						
+						<img class = 'SpellListIcon' src = 'public/images/spells/cloudcanon.png' href = "#" />
+						<img class = 'SpellListIcon' src = 'public/images/spells/cloudcanon.png' href = "#" />
+						<img class = 'SpellListIcon' src = 'public/images/spells/cloudcanon.png' href = "#" />
+						<img class = 'SpellListIcon' src = 'public/images/spells/cloudcanon.png' href = "#" />
+						<img class = 'SpellListIcon' src = 'public/images/spells/cloudcanon.png' href = "#" />
+																																				
 					</div>
 
 			</div>
 			
 			<div class = 'Options'>
+				<span class='gameButton' > Exit Game </span>
+				<span class = 'gameButton'> Options </span>
 			</div>
 			
 		</div>
@@ -220,7 +245,7 @@
 			fixHeight()
 			</script>	
 	
-	</div>
+		</div>
 	
 </body>
 
