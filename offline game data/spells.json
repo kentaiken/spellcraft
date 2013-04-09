@@ -1,48 +1,83 @@
 {"spells" :{
-	"heal" :
+	"blood_sacrifice" :
 	{
-		"mana" : 2,
-		"life" : 0,
+		"mana" : 0,
+		"life" : 1,
 		"oplifechange" : 0,
-		"plifechange": 3,
+		"plifechange": 0,
 		"opmanachange":0,
-		"pmanachange":-2,
-		"description":"Caster gains 3 life.",
-		"img-url":"images/spells/heal.png"
+		"pmanachange":3,
+		"description":"Caster loses 1 life to gain 3 mana.",
+		"img-url":"public/images/spells/blood_sacrifice.png"
 
 	},
-	"flameblast":
+	"fire_ball":
 	{
-		"mana" : 2,
+		"mana" : 3,
 		"life" : 0,
-		"oplifechange" : -2,
+		"oplifechange" : -3,
 		"plifechange":0,
 		"opmanachange":0,
-		"pmanachange":-2,
-		"description":"Inflicts 2 damage on opponent.",
-		"img-url":"images/spells/flameblast.png"
+		"pmanachange":0,
+		"description":"Deals 3 damage to the opponent.",
+		"img-url":"public/images/spells/fire_ball.png"
 	}
 	,
-	"manadrain":
+	"heal":
 	{
-		"mana":0,
-		"life":1,
+		"mana":1,
+		"life":0,
 		"oplifechange":0,
-		"plifechange":-1,
-		"pmanachange":2,
-		"description":"Caster losses 1 life, gaining 2 mana.",
-		"img-url":"images/spells/manadrain.png"
+		"plifechange":2,
+		"opmanachange":0,
+		"pmanachange":0,
+		"description":"Caster gains 2 life.",
+		"img-url":"public/images/spells/heal.png"
 	}
 	,
-	"cloudcanon":
+	"siphon's_drain":
+	{
+		"mana":1,
+		"life":0,
+		"oplifechange":0,
+		"plifechange":0,
+		"opmanachange":-2,
+		"pmanachange":2,
+		"description":"Drains 2 mana from opponent.",
+		"img-url":"public/images/spells/siphon's_drain.png"
+	},
+	"disruptive_shift":
+	{
+		"mana":2,
+		"life":0,
+		"oplifechange":0,
+		"plifechange":0,
+		"opmanachange":0,
+		"pmanachange":5,
+		"description":"Doubles the caster's mana. Cannot exceed opponent's health.",
+		"img-url":"public/images/spells/disruptive_shift.png"
+	},
+	"vampiric_drain":
 	{
 		"mana":4,
-		"life":1,
-		"oplifechange":-4,
-		"plifechange":-1,
+		"life":0,
+		"oplifechange":-2,
+		"plifechange":2,
 		"opmanachange":0,
-		"pmanachange":-4,
-		"description":"Caster sacrifices 1 life to summons a large spike ball, dealing opponent 4 damage."
+		"pmanachange":0,
+		"description":"Drains 2 life from the opponent.",
+		"img-url":"public/images/spells/vampiric_drain.png"
+	},
+	"chaotic_blast":
+	{
+		"mana":5,
+		"life":0,
+		"oplifechange":-5,
+		"plifechange":0,
+		"opmanachange":0,
+		"pmanachange":0,
+		"description":"Deals 5 damage to the opponent.",
+		"img-url":"public/images/spells/chaotic_blast.png"
 	}
 }
 }

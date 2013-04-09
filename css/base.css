@@ -75,6 +75,7 @@ div.EnemyInfo,
 div.PlayerInfo
 {
 	 width:220px;
+	 background-image:url("images/statusbk.png')
 }
 
 div.EnemyStatus,
@@ -133,6 +134,9 @@ img.PlayerDisplayPic
 	height:84%;
 	width:50%;
 	background-color:silver;
+	border-style:groove;
+	border-color:gray;
+	border-width:1px;
 }
 
 div.EnemyName,
@@ -193,8 +197,7 @@ p.infoText
 	color:white;
 	font-family:cosmic cans ms;
 	letter-spacing:2px;
-	font-size:15px;
-	font-style:italic;
+	font-size:14px;
 	display:inline;
 	text-transform:capitalize;
 	margin:auto;
@@ -220,14 +223,16 @@ p.extrasText
 img.SpellListIcon
 {
 	float:left;
-    	width:60px;
-	height:19%;
-	opacity:0.7;
+    	width:65px;
+	height:65px;
+	opacity:0.9;
 	border-style:solid;
+	border-width:2px;
+	border-color:black;
 	display:inline;
 	border-radius:5%;
-	margin-top:9%;
-	margin-left:9%;
+	margin-top:5%;
+	margin-left:5%;
 }
 
 div.SpellInfoMana
@@ -248,34 +253,15 @@ div.SpellInfoContainer
 div.SpellListIcons
 {
     	float:top;
-	height:100%;
+	height:90%;
+	margin-top:5%;
+	margin-bottom:5%;
+	margin-left:5%;
+	margin-right:5%;
 	overflow:auto;
 }
 
-div.Bar
-{
-	width:100%;
-	float:top;
-	height:5%;
-	border-style:solid;
-	border-width:1px;
-	border-color:silver;
-	border-radius:5%;
-}
 
-div.LifeBar
-{
-	height:100%;
-	width:100%;
-	background-color:#CC0000;
-}
-
-div.ManaBar
-{
-	height:100%;
-	width:100%;
-	background-color:#003399;
-}
 
 
 .gameButton
