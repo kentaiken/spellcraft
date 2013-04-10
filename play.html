@@ -2,22 +2,19 @@
 
 <head>
 
-	<link rel="stylesheet" type="text/css" href="E:/Workspaces/Spellcraft/css/base.css" />
+	<link rel="stylesheet" type="text/css" href="css/base.css" />
 
 	
 	<script type="text/javascript" src="libs/jquery.js"></script>
-	<script src = "libs/handlers.js"></script>
-
-	<script>loadSpells()</script>		
-
-	<script>
 	
-	</script>
+	<script src = "scripts/handlers.js"></script>
+
+
 </head>
 
 <body>
 	
-	
+	<script>loadSpells()</script>		
 	<div class = 'Header'>
 		<span class ='headertext'>SpellCraft <span class='miniText'>Alpha</span></span>
 	</div>
@@ -27,7 +24,7 @@
 		
 			<div class = 'EnemyInfo'>
 				
- 				 <img class = 'EnemyDisplayPic' id = 'p1_image' src = "public/images/userTest.png" href = '#' />
+ 				 <img class = 'EnemyDisplayPic' id = 'p1_image' src = "public/images/spells/vitality_robe.png" href = '#' />
 				 
 			  	<div class = 'EnemyStatus'>
 
@@ -36,17 +33,11 @@
 				  
 					<img class = 'manaPic' src ="css/images/manaPic.png"> </img>
 				<p class = 'Mana' id = "EnemyMana" >10</p> 
-
-				
 				 
 			</div>
 			<div class = 'EnemyName' id = 'p1_name'>
 				  Name
 			  </div>
-			
-
-			  
-		
 				
 			</div>
 			
@@ -63,7 +54,7 @@
 			
 			<div class = 'PlayerInfo'>
 			
- 				 <img id = 'p2_image' class = 'PlayerDisplayPic' src = "public/images/userTest.png" href = '#' />
+ 				 <img id = 'p2_image' class = 'PlayerDisplayPic' src = "public/images/spells/demonic_robe.png" href = '#' />
  			
 				 <div class = 'PlayerStatus'>
 					 <img class = 'lifePic' src="css/images/lifePic.png">	</img>
@@ -71,9 +62,6 @@
 				<p class = 'Life' id = 'PlayerLife' >10</p>
 				  <img class = 'manaPic' src ="css/images/manaPic.png"> </img>
 				 <p class = 'Mana' id = 'PlayerMana' >10</p>
-				
-			
-				
 			
 			</div>	
 			<div class = 'PlayerName' id = 'p2_name' >
@@ -81,9 +69,6 @@
 				 </div>
 				 
 			</div>
-			
-			
-			
 			
 			<div class = 'PlayerExtras'>
 				<p class = 'extrasText'>Haven't decided what to place in here.</p>
@@ -95,7 +80,7 @@
 		<div class = 'GamePanel'>
 			<div class = 'SpellInfo'>
 				<div class = 'SpellInfoContainer'> 
-					<p class = 'infoText' style="color:cyan;"id = 'spellName'></p>
+					<p class = 'infoText' style="color:#15F1B2;"id = 'spellName'></p>
 					</br>
 					 <p class='infoText' id='spellLife'> </p>
 					</br>
@@ -113,8 +98,7 @@
 			<div class = 'SpellList'>
 				
 				    <div class = 'SpellListIcons' id="sl">
-																																				
-					</div>
+				    </div>
 
 			</div>
 			
@@ -124,9 +108,11 @@
 			</div>
 			
 		</div>
+
 		<script>
 			fixHeight()
-			</script>	
+			fixMargin()
+		</script>	
 	
 		</div>
 	

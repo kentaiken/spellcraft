@@ -75,7 +75,6 @@ div.EnemyInfo,
 div.PlayerInfo
 {
 	 width:220px;
-	 background-image:url("images/statusbk.png')
 }
 
 div.EnemyStatus,
@@ -117,7 +116,7 @@ div.SpellInfo
 div.SpellList
 {
 	height:50%;
-	background-image:url('images/spelllistbk.png');
+	background-image:url("images/sbk.png");
 }
 
 div.Options
@@ -136,7 +135,7 @@ img.PlayerDisplayPic
 	background-color:silver;
 	border-style:groove;
 	border-color:gray;
-	border-width:1px;
+	border-width:2px;
 }
 
 div.EnemyName,
@@ -189,7 +188,6 @@ p.Mana
 {
 	color:blue;
 	float:top;
-	margin-top:px;
 }
 
 p.infoText
@@ -197,7 +195,7 @@ p.infoText
 	color:white;
 	font-family:cosmic cans ms;
 	letter-spacing:2px;
-	font-size:14px;
+	font-size:13px;
 	display:inline;
 	text-transform:capitalize;
 	margin:auto;
@@ -217,22 +215,22 @@ p.extrasText
 	font-size:13px;
 	margin-top:3%;
 	margin-left:3%;
-	color:#00FF00;
+	color:#15F1B2;
 	letter-spacing:3px;
 }
 img.SpellListIcon
 {
 	float:left;
-    	width:65px;
+    	width:70px;
 	height:65px;
 	opacity:0.9;
 	border-style:solid;
 	border-width:2px;
 	border-color:black;
 	display:inline;
-	border-radius:5%;
-	margin-top:5%;
-	margin-left:5%;
+	border-radius:10%;
+	margin-top:2%;
+	margin-left:2%;
 }
 
 div.SpellInfoMana
@@ -258,7 +256,9 @@ div.SpellListIcons
 	margin-bottom:5%;
 	margin-left:5%;
 	margin-right:5%;
+	background-color:black;
 	overflow:auto;
+
 }
 
 
@@ -267,25 +267,32 @@ div.SpellListIcons
 .gameButton
 {
 	text-align:center;
-	color:#00FF00;
+	color:#15F1B2;
 	padding:2px;
 	display:block;
 	margin:25px;
+	margin-left:27%;
+	margin-right:27%;
+	font-family:cosmis csans ms;
+	font-weight:3px;
 	border-style:groove;
 	border-color:gray;
 	background-color:black;
 	cursor:default;
 }
 
+
 .gameButton:hover
 {
-	border-color:white;
+	color:white;
 }
 
 .gameButton:active
 {
 	border-style:inset;
 }
+
+
 .lifePic
 {
 	width:20px;
