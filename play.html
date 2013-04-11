@@ -6,6 +6,7 @@
 
 	
 	<script type="text/javascript" src="libs/jquery.js"></script>
+	<script type="text/javascript" src="libs/jsScrollbar.js"></script>
 	
 	<script src = "scripts/handlers.js"></script>
 
@@ -35,8 +36,8 @@
 				<p class = 'Mana' id = "EnemyMana" >10</p> 
 				 
 			</div>
-			<div class = 'EnemyName' id = 'p1_name'>
-				  Name
+			<div class = 'EnemyName' >
+				  <span class = 'Name'>ZMage</span>
 			  </div>
 				
 			</div>
@@ -49,7 +50,6 @@
 			
 
 			<div class = 'GameStatus'>
-				<p onclick="updateStatus('Enemy',10,-5)" class='extrasText'>Attack Enemy !!</p>
 			</div>
 			
 			<div class = 'PlayerInfo'>
@@ -64,8 +64,8 @@
 				 <p class = 'Mana' id = 'PlayerMana' >10</p>
 			
 			</div>	
-			<div class = 'PlayerName' id = 'p2_name' >
-					 Name
+			<div class = 'PlayerName' >
+					 <span class ='Name' id = 'playerName'>Mistify</span>
 				 </div>
 				 
 			</div>
@@ -86,6 +86,7 @@
 					</br>
 					<p class='infoText' id='spellMana'> </p>
 					</br>
+					</br>
 					<p class='infoText' id = 'spellInfo'></p>
 					<div class = 'SpellInfoAbility'>
 
@@ -103,8 +104,8 @@
 			</div>
 			
 			<div class = 'Options'>
-				<span class='gameButton' > Exit Game </span>
-				<span class = 'gameButton'> Options </span>
+				<span class='gameButton' > Options </span>
+				<span class = 'gameButton'> Exit Game </span>
 			</div>
 			
 		</div>

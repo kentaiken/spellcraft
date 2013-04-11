@@ -12,18 +12,19 @@ div.Header
 	background-image:url('images/navbar.png');
 	border-bottom:solid;
 	border-top:solid;
-	border-color:gray;
+	border-color:#393939;
 
 }
 div.Container
 {
 	 height:668px;
-	 width:980px;
+	 width:1000px;
 	 margin-top:1%;
 	 margin:auto;
 	 border-width:1px;
 	 border-color:white;
 	 border-style:solid:
+	 background-color:green;
 }
 
 
@@ -36,12 +37,12 @@ div.StatusScreen,div.GamePanel
 
 div.StatusScreen
 {
-	 width:648px;
+	 width:70%;
 	 margin-left:1%;
 }
 div.GamePanel
 {
-	 width:290px;
+	 width:29%;
 }
 div.EnemyInfo,
 div.EnemyExtras,
@@ -52,7 +53,7 @@ div.PlayerExtras
 	 background-color:black;
 	 float:left;
 	 font-family:arial;
-	 height:20%;
+	 height:23%;
 }
 
 div.EnemyInfo,
@@ -74,7 +75,8 @@ div.Options
 div.EnemyInfo,
 div.PlayerInfo
 {
-	 width:220px;
+	 width:34%;
+
 }
 
 div.EnemyStatus,
@@ -87,15 +89,13 @@ div.PlayerStatus
 div.EnemyExtras,
 div.PlayerExtras
 {
-	 width:410px;
-	 background-image:url('images/extrasbk.png');
+	 width:65%;
 }
 
 div.GameStatus
 {
-	 width:640px;
-	 height:50%;
-	 background-image:url('images/gameStatus.png');
+	 width:100%;
+	 height:45%;
 }
 
 
@@ -110,13 +110,12 @@ div.Options
 
 div.SpellInfo
 {
-     height:20%;
+     height:21%;
 }
 
 div.SpellList
 {
 	height:50%;
-	background-image:url("images/sbk.png");
 }
 
 div.Options
@@ -130,8 +129,10 @@ img.EnemyDisplayPic,
 img.PlayerDisplayPic
 {
 	float:left;
-	height:84%;
+	height:74%;
 	width:50%;
+	margin-left:2%;
+	margin-top:2%;
 	background-color:silver;
 	border-style:groove;
 	border-color:gray;
@@ -141,12 +142,12 @@ img.PlayerDisplayPic
 div.EnemyName,
 div.PlayerName
 {
-	float:left;
 	height:5%;
 	width:100%;
 	color:white;
 	letter-spacing:2px;
 	font-size:12px;
+	font-style:bold;
 	text-align:center;
 	background-color:black;
 }
@@ -178,6 +179,13 @@ div.PlayerStatus
 	font-size:10px;
 	color:white;
 }
+
+.Name
+{
+	font-style:bold;
+	font-family:cosmic cans ms;
+	color:cyan;
+}
 p.Life
 {
 	color:red;
@@ -186,7 +194,7 @@ p.Life
 
 p.Mana
 {
-	color:blue;
+	color:#00A4F1;
 	float:top;
 }
 

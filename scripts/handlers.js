@@ -49,7 +49,7 @@ var spells;
 
 		//Selection effects for spell icons.
 		function select(elm){
-			$(elm).css("border-color","yellow");
+			$(elm).css("border-color","#FEFFDB");
 			$(elm).css("border-width","2px");
 			$(elm).fadeTo("fast","1.0")
 			updateSpellInfo($(elm).attr("src"))
