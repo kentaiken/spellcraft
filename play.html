@@ -6,6 +6,7 @@
 
 	
 	<script type="text/javascript" src="libs/jquery.js"></script>
+	<script type="text/javascript" src="libs/jsScroller.js"></script>
 	<script type="text/javascript" src="libs/jsScrollbar.js"></script>
 	
 	<script src = "scripts/handlers.js"></script>
@@ -15,7 +16,7 @@
 
 <body>
 	
-	<script>loadSpells()</script>		
+	<script>loadSpells()</script>
 	<div class = 'Header'>
 		<span class ='headertext'>SpellCraft <span class='miniText'>Alpha</span></span>
 	</div>
@@ -25,34 +26,42 @@
 		
 			<div class = 'EnemyInfo'>
 				
- 				 <img class = 'EnemyDisplayPic' id = 'p1_image' src = "public/images/spells/vitality_robe.png" href = '#' />
+				<img src="css/images/testbk.png" class="Background" >
+ 				 <img class = 'EnemyDisplayPic' id = 'enemy_image' src = "public/images/spells/vitality_robe.png" href = '#' />
 				 
 			  	<div class = 'EnemyStatus'>
 
-					<img class = 'lifePic' src="css/images/lifePic.png">	</img>
-				<p class = 'Life' id = "EnemyLife" >10</p>
+					<img class = 'lifePic' src="css/images/lifePic.png">
+					<p class = 'Life' id = "EnemyLife" >10</p>
 				  
-					<img class = 'manaPic' src ="css/images/manaPic.png"> </img>
-				<p class = 'Mana' id = "EnemyMana" >10</p> 
+					<img class = 'manaPic' src ="css/images/manaPic.png">
+					<p class = 'Mana' id = "EnemyMana" >10</p> 
 				 
-			</div>
-			<div class = 'EnemyName' >
-				  <span class = 'Name'>ZMage</span>
-			  </div>
+				</div>
+
+				<div class = 'EnemyName' >
+					<span class = 'Name'>ZMage</span>
+			  	</div>
 				
 			</div>
 			
 			
 			<div class = 'EnemyExtras'>
-				<p class = 'extrasText'>Haven't decided what to place in here.</p>
-				<p class = 'extrasText'>The spell cards chosen by the player for the turn is a good choice though.</p>
+					<img class="Background" src = "css/images/testbk.png">
+					<img class='Wait' src = "css/images/wait.gif">
+					<div class = 'Waitinfo'>
+						<span class = 'Infotext'>Will begin soon .. </span> 
+					</div>
 			</div>
 			
 
 			<div class = 'GameStatus'>
+				<img class = 'Background' src = "css/images/testbk.png">
+				<p> i'm typing something </p>
 			</div>
 			
 			<div class = 'PlayerInfo'>
+				<img src="css/images/testbk.png" class="Background" >
 			
  				 <img id = 'p2_image' class = 'PlayerDisplayPic' src = "public/images/spells/demonic_robe.png" href = '#' />
  			
@@ -70,9 +79,24 @@
 				 
 			</div>
 			
-			<div class = 'PlayerExtras'>
-				<p class = 'extrasText'>Haven't decided what to place in here.</p>
-				<p class = 'extrasText'>The spell cards chosen by the player for the turn is a good choice though.</p>
+			<div class = 'ChatScreen'>
+
+				<img class="Background" src = "css/images/testbk.png">
+				<div class = 'ChatContent' id = 'scrollChat'>
+					<div class = 'Scroller-Container' id='chat'>
+					</div>
+				</div>
+				<div class = 'Scrollbar-Container' id='scontainer'>
+					 <img src = "css/images/scrollUpbk.png" class="Scrollbar-Up"/>
+					    <div class="Scrollbar-Track">
+						<img src="css/images/handlebk.png" class="Scrollbar-Handle"/>
+					</div>	 
+					  <img src="css/images/scrollDownbk.png" class="Scrollbar-Down"/>
+				  </div>
+				  <div class = "ChatInput">
+					<input id = 'inputBox' onclick = "this.value = ''" value ="Enter the message here .."></input>
+					<span id = 'inputHandle' onclick = "addChatMessage(docGet('inputBox').value)">Send</span>
+				</div>
 			</div>
 			
 		</div>
@@ -80,7 +104,7 @@
 		<div class = 'GamePanel'>
 			<div class = 'SpellInfo'>
 				<div class = 'SpellInfoContainer'> 
-					<p class = 'infoText' style="color:#15F1B2;"id = 'spellName'></p>
+					<p class = 'infoText' style="color:black;font-size:15px;font-weight:bold;"id = 'spellName'></p>
 					</br>
 					 <p class='infoText' id='spellLife'> </p>
 					</br>
@@ -97,9 +121,19 @@
 		   
 			
 			<div class = 'SpellList'>
-				
-				    <div class = 'SpellListIcons' id="sl">
+
+				<img src ="css/images/testbk.png" class = "Background">
+				    <div class = 'SpellListIcons' id = 'slcontainer' >
+					    <div class = "Scroller-Container" id = 'sl'>   
+					    </div>
 				    </div>
+				    <div class = 'Scrollbar-Container' id='sbcontainer'>
+					 <img src = "css/images/scrollUpbk.png" class="Scrollbar-Up"/>
+					    <div class="Scrollbar-Track">
+						<img src="css/images/handlebk.png" class="Scrollbar-Handle"/>
+					</div>	 
+					  <img src="css/images/scrollDownbk.png" class="Scrollbar-Down"/>
+				   </div>
 
 			</div>
 			
@@ -116,6 +150,8 @@
 		</script>	
 	
 		</div>
+
+		<script>setChatScroll()</script>
 	
 </body>
 

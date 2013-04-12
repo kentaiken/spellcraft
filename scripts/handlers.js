@@ -4,7 +4,14 @@
 
 
 var spells;
+var spellsScroller;
+var spellsScrollbar;
 
+
+var chatScroller;
+var chatScrollbar;
+var chatScrollWrapper;
+var chatScrollbarWrapper;
 
 // Helpers 
 //----------------------------------------------------------------------------------------------------
@@ -20,10 +27,28 @@ var spells;
 		}
 // Handlers
 //----------------------------------------------------------------------------------------------------
+		
+		function setChatScroll(){
+				chatScrollWrapper = docGet("scrollChat")
+				chatScrollbarWrapper = docGet("scontainer")
+				chatScroller = new jsScroller(chatScrollWrapper,100,100)
+				chatScrollbar = new jsScrollbar(chatScrollbarWrapper,chatScroller,false)
+		}
+		
+		function addChatMessage(message){
+			var chat = docGet('chat')
+			var newMessage = document.createElement('span')	
+			newMessage.setAttribute("class",'ChatMessage')
+			newMessage.innerHTML = "<span class = 'SenderName'>" + docGet('playerName').innerHTML + " : </span> <span class ='ChatText'>"+ message + "</span> </br>"
+			chat.appendChild(newMessage)
+			newMessage.style.width = "100%"
+			setChatScroll()
+			chatScrollbar.scrollTo(0,docGet("chat").clientHeight)
 
+		}
 		function fixHeight(){
 			var container = docGet('container')
-			container.style.height = window.innerHeight - 10;
+			container.style.height = window.innerHeight - 85;
 		}
 
 
@@ -49,16 +74,14 @@ var spells;
 
 		//Selection effects for spell icons.
 		function select(elm){
-			$(elm).css("border-color","#FEFFDB");
 			$(elm).css("border-width","2px");
-			$(elm).fadeTo("fast","1.0")
+			$(elm).fadeTo(600,"1.0")
 			updateSpellInfo($(elm).attr("src"))
 		}
 
 		function deselect(elm)
 		{
-			$(elm).css("border-color","black");
-			$(elm).fadeTo("fast","0.9")
+			$(elm).fadeTo("fast","0.6")
 		}
 		
 		//Implements a loading screen.
@@ -69,7 +92,7 @@ var spells;
 			var message = document.createElement("span")
 
 			message.style.display = "block"
-			message.style.color = "cyan"
+			message.style.color = "white"
 			message.innerHTML = "Loading Spells.."
 			message.style.marginTop = "10%"
 			message.style.fontStyle = "italic"
@@ -79,10 +102,10 @@ var spells;
 			img.style.height = "20px"
 			img.src = "public/images/loader.gif"
 			img.style.marginTop = "40%"
-			img.style.marginLeft = "5%"
+			img.style.marginLeft = "4%"
 
 
-			screen.setAttribute("id","splatScreen")
+			screen.setAttribute("id","splashScreen")
 			sstyle.width = "300px"
 			sstyle.height = "300px"
 			sstyle.left = window.innerWidth/2 - 160
@@ -96,8 +119,11 @@ var spells;
 			screen.appendChild(img)
 			document.body.appendChild(screen)
 		}
+
 		function removeSplash(){
-			document.body.removeChild(docGet("splatScreen"))
+			$(document).ready( function(){
+				$("#splashScreen").fadeOut("slow")
+			});
 		}
 
 		//Loads spells data.
@@ -114,6 +140,8 @@ var spells;
 						removeSplash()
 						spells = JSON.parse(req.response)
 						updateSpellList()
+						spellsScroller = new jsScroller(docGet("slcontainer"),100,100)
+						spellsScrollbar = new jsScrollbar(docGet("sbcontainer"),spellsScroller,true)
 					}
 
 			}
@@ -124,8 +152,8 @@ var spells;
 		//This centers the container vertically on different window sizes.
 		function fixMargin(){
 			var container = docGet("container")
-			if(window.innerHeight > container.clientHeight)
-				container.style.marginTop = ((window.innerHeight - container.clientHeight) /2) + "px"
+			if(window.innerHeight > container.clientHeight + 60)
+				container.style.marginTop = ((window.innerHeight -  (container.clientHeight+60)) /2) + "px"
 		}
 	
 		//Updates player/enemy's life and mana attrs.
