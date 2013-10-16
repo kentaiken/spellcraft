@@ -36,14 +36,19 @@ var chatScrollbarWrapper;
 		}
 		
 		function addChatMessage(message){
+
+						var text = $('#inputBox').val();
+							chatVar.push({name: docGet('playerName').innerHTML,text: text});
+	  
 			var chat = docGet('chat')
 			var newMessage = document.createElement('span')	
 			newMessage.setAttribute("class",'ChatMessage')
-			newMessage.innerHTML = "<span class = 'SenderName'>" + docGet('playerName').innerHTML + " : </span> <span class ='ChatText'>"+ message + "</span> </br>"
+			newMessage.innerHTML = "<span class = 'SenderName'>" + docGet('playerName').innerHTML + " : </span> <span class ='ChatText'>"+ text + "</span> </br>"
 			chat.appendChild(newMessage)
 			newMessage.style.width = "100%"
 			setChatScroll()
 			chatScrollbar.scrollTo(0,docGet("chat").clientHeight)
+			$('#inputBox').val('');
 
 		}
 		function fixHeight(){

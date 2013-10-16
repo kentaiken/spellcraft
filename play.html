@@ -11,6 +11,8 @@
 	
 	<script src = "scripts/handlers.js"></script>
 
+	<script src='https://cdn.firebase.com/v0/firebase.js'></script>
+
 
 </head>
 
@@ -80,6 +82,7 @@
 			</div>
 			
 			<div class = 'ChatScreen'>
+				
 
 				<img class="Background" src = "css/images/testbk.png">
 				<div class = 'ChatContent' id = 'scrollChat'>
@@ -96,6 +99,16 @@
 				  <div class = "ChatInput">
 					<input id = 'inputBox' onclick = "this.value = ''" value ="Enter the message here .."></input>
 					<span id = 'inputHandle' onclick = "addChatMessage(docGet('inputBox').value)">Send</span>
+				<script> var chatVar= new Firebase('https://the-spellcraft.firebaseio.com/');
+					
+						 
+						  $('#inputBox').keypress(function (e) {
+        											if (e.keyCode == 13) {
+        											 
+          											addChatMessage(docGet('inputBox').value);	
+    															  }
+     												 });
+				</script>
 				</div>
 			</div>
 			
