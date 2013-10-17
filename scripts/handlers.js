@@ -35,20 +35,35 @@ var chatScrollbarWrapper;
 				chatScrollbar = new jsScrollbar(chatScrollbarWrapper,chatScroller,false)
 		}
 		
+		var firebaseVar= new Firebase('https://the-spellcraft.firebaseio.com');
+		var chatVar = firebaseVar.child('chat');
+		chatVar.on('child_added',function (snapshot) { var message = snapshot.val();
+														message = message.text;
+														addChatMessage(message);
+														})
+						 
+		$('#inputBox').keypress(function (e) {	if (e.keyCode == 13) {	saveChatMessage(); }
+     											});
+				
+		function saveChatMessage(){
+			var text = $('#inputBox').val();
+			chatVar.push({name: docGet('playerName').innerHTML,text: text});
+			$('#inputBox').val('');
+		}
+
 		function addChatMessage(message){
 
-						var text = $('#inputBox').val();
-							chatVar.push({name: docGet('playerName').innerHTML,text: text});
+						
 	  
 			var chat = docGet('chat')
 			var newMessage = document.createElement('span')	
 			newMessage.setAttribute("class",'ChatMessage')
-			newMessage.innerHTML = "<span class = 'SenderName'>" + docGet('playerName').innerHTML + " : </span> <span class ='ChatText'>"+ text + "</span> </br>"
+			newMessage.innerHTML = "<span class = 'SenderName'>" + docGet('playerName').innerHTML + " : </span> <span class ='ChatText'>"+ message + "</span> </br>"
 			chat.appendChild(newMessage)
 			newMessage.style.width = "100%"
 			setChatScroll()
 			chatScrollbar.scrollTo(0,docGet("chat").clientHeight)
-			$('#inputBox').val('');
+			
 
 		}
 		function fixHeight(){

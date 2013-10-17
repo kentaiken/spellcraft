@@ -98,17 +98,18 @@
 				  </div>
 				  <div class = "ChatInput">
 					<input id = 'inputBox' onclick = "this.value = ''" value ="Enter the message here .."></input>
-					<span id = 'inputHandle' onclick = "addChatMessage(docGet('inputBox').value)">Send</span>
-				<script> var chatVar= new Firebase('https://the-spellcraft.firebaseio.com/');
-					
+					<span id = 'inputHandle' onclick = "saveChatMessage()">Send</span>
+				<script>
+					var firebaseVar= new Firebase('https://the-spellcraft.firebaseio.com');
+					var chatVar = firebaseVar.child('chat');
+					chatVar.on('child_added',function (snapshot) { var message = snapshot.val();
+																	message = message.text;
+																	addChatMessage(message);
+																});
 						 
-						  $('#inputBox').keypress(function (e) {
-        											if (e.keyCode == 13) {
-        											 
-          											addChatMessage(docGet('inputBox').value);	
-    															  }
-     												 });
-				</script>
+					$('#inputBox').keypress(function (e) {	if (e.keyCode == 13) {	saveChatMessage(); }
+     														});
+		</script>
 				</div>
 			</div>
 			
