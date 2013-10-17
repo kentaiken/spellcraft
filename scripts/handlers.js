@@ -35,21 +35,7 @@ var chatScrollbarWrapper;
 				chatScrollbar = new jsScrollbar(chatScrollbarWrapper,chatScroller,false)
 		}
 		
-		var firebaseVar= new Firebase('https://the-spellcraft.firebaseio.com');
-		var chatVar = firebaseVar.child('chat');
-		chatVar.on('child_added',function (snapshot) { var message = snapshot.val();
-														message = message.text;
-														addChatMessage(message);
-														})
-						 
-		$('#inputBox').keypress(function (e) {	if (e.keyCode == 13) {	saveChatMessage(); }
-     											});
-				
-		function saveChatMessage(){
-			var text = $('#inputBox').val();
-			chatVar.push({name: docGet('playerName').innerHTML,text: text});
-			$('#inputBox').val('');
-		}
+
 
 		function addChatMessage(message){
 
