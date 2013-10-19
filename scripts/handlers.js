@@ -151,7 +151,7 @@ var chatScrollbarWrapper;
 					}
 
 			}
-			req.open("GET","https://spellcraftbase.firebaseio.com/spells.json",true);
+			req.open("GET","https://the-spellcraft.firebaseio.com/spells.json",true);
 			req.send();
 		}
 

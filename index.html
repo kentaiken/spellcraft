@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<script type="text/javascript" src="libs/jquery.js"></script>
 		<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
 		<script src='https://cdn.firebase.com/v0/firebase.js'></script>
 		<script type="text/javascript" src="scripts/firebase.js"></script>
@@ -7,7 +8,10 @@
 	
 	<body>
 		<button onclick='auth.login("facebook")'>Facebook Login</button>
-		<button onclick='auth.logout()'>Facebook Logout</button>
+		<input id='useremail' type='email'>
+		<input id='userpasswd' type='password'>
+		<button onclick='authLogin()'>Login</button>
+		<button onclick='auth.logout()'>Logout</button>
 	
 	</body>
 
