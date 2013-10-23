@@ -1,18 +1,69 @@
 <html>
 	<head>
+		<meta charset='UTF-8'>
 		<script type="text/javascript" src="libs/jquery.js"></script>
 		<script type='text/javascript' src='https://cdn.firebase.com/v0/firebase-simple-login.js'></script>
 		<script src='https://cdn.firebase.com/v0/firebase.js'></script>
 		<script type="text/javascript" src="scripts/firebase.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>
+		<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="css/index.css" rel="stylesheet">
+		<script>
+			$(document).ready( function(){
+				$("#logout").hide();
+			});
+
+			$(document).ready( function(){
+				$.ajax({
+			        	url: "home.html"
+		          	})
+		   		.done( function(data){
+			
+				    $(".content").append(data);
+
+		    		});
+			});
+				
+		</script>
+
 	</head>
 	
 	<body>
-		<button onclick='auth.login("facebook")'>Facebook Login</button>
-		<input id='useremail' type='email'>
-		<input id='userpasswd' type='password'>
-		<button onclick='authLogin()'>Login</button>
-		<button onclick='auth.logout()'>Logout</button>
+
+	    <div class="navbar">
+		    <div class="navbar-inner">
+		    	<a class="brand" href="#">SpellCraft</a>
+			<div class = 'btn-group'>
+
+				<button id='email_login' class = ' btn login'>Login</button>
+				<button id='facebook_login' class = 'btnfb login'></button>
+				<button id ='logout' class='btn log-group'>Logout</button>
+
+			</div>
+
+			<input id='userpasswd' placeholder ='Password' class = 'login login-input'type='password'>
+			<input id='useremail' placeholder = 'Username' class = 'login login-input' type='text'>
+
+		    </div>
+	    </div>
+
+	    <div class ='container-fluid' id= 'container'>
+		<div class = 'row-fluid container-main'>	
+
+			<div class = 'span2 nav nav-list nav-panel'>
+				<li class = 'nav-header'> We got pages ! <li>
+				<li class = 'active' ><a href = '#'>Home</a></li> 
+				<li><a href='#'>Play</a></li>
+				<li><a href = '#'>Status</a></li>
+				<li><a href = '#'> About </a></li>
+			</div>
+
+			<div class = 'span10 content'>
+			</div>
+		</div>
+
 	
+	    </div>
 	</body>
 
 

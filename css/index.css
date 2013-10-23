@@ -1,0 +1,40 @@
+.navs
+{
+}
+
+.login-group
+{
+	float:right;
+}
+
+.btn-group
+{
+	float:right;
+}
+
+.login-input
+{
+	margin-top:1%;
+	margin-right:1%;
+	float:right;
+}
+
+.btnfb
+{
+	background-image:url("images/signin_facebook.png");
+	background-repeat:no-repeat;
+	height:25px;
+	width:152px;
+}
+
+.nav-panel
+{
+	background-color:#F7F7F7;
+	height:85%;
+}
+
+.content
+{
+	height:85%;
+}
+
