@@ -15,9 +15,9 @@
 																							}
 																		});
 	
-	var gameList;
+	var gameList = new Array();
 	var i = 0;
-	var j;
+	var j = 0;
 	var robes = firebaseVar.child('robes');
 	var spells = firebaseVar.child('spells');
 
