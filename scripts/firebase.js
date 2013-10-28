@@ -53,7 +53,7 @@
 		
 		
 		function newGame(){
-			var newGame = userVar.child('games').push(role);
+			var newGame = userVar.child('games').push('host');
 			var currentGame = userVar.child('games/current').set(newGame.name());
 			firebaseVar.child('instances/'+currentGame.val()+'/info/host/id').set(auth.id);
 			gamerVar = firebaseVar.child('instances/'+currentGame.val()+'/info/host');
