@@ -15,30 +15,24 @@
 																							}
 																		});
 	
-	var gameList[];
-	var i = 0;
-	var j;
+	
+	
 	var robes = firebaseVar.child('robes');
 	var spells = firebaseVar.child('spells');
-
+	var playerRobe;
+	var enemyRobe;
 	
 	var instanceVar;
-	var gamerVar;
 	var chatVar;
-
+	var player;
+	var enemy;
+	var events;
 
 	chatVar.on('child_added',function (snapshot) { 		
 								var message = snapshot.val();
 								message = message.text;
 								addChatMessage(message);
 							});
-
-	firebaseVAr.child('instances').on('child_added',function (snapshot) {
-														if(!snapshot.child('player/id').exists()) {
-															gameList[i++] = snapshot;
-														}
-
-	})
 							
 	
 	
@@ -47,49 +41,24 @@
 	$('#demonrobe').click(assignRobe('demonic'));
 	
 		function picRobe(id){
-			$('#'+id).html("<div id='picrobe'><button id='vitalrobe'> Weareth Vitality Robe </button><br/><button id='demonrobe'> Ja Demonic Robe </button></div>");
-
+			$('#'+id).html("<a href='play.html'><button id='vitalrobe'> Weareth Vitality Robe </button><button id='demonrobe'> Ja Demonic Robe </button></a>");
 		}
 		
 		
 		function newGame(){
-			var newGame = userVar.child('games').push(role);
-			var currentGame = userVar.child('games/current').set(newGame.name());
-			firebaseVar.child('instances/'+currentGame.val()+'/info/host/id').set(auth.id);
-			gamerVar = firebaseVar.child('instances/'+currentGame.val()+'/info/host');
+			instanceVar = firebaseVar.child('instances').push();
+			chatVar = instanceVar.child('chat');
+			player = instanceVar.child(auth.id);
+			events = instanceVar.child('events');
+			
+			userVar.child('current_game').set(instanceVar.name());
 			picRobe('newgame');
 		
 		}
 
 		function showGames(){
-			$('#joingame').html("<ol id='games'></ol>");
-			for(j=0;j<=i;j++) {
-				var buttonText = 'against '+gameList[j].child('info/host/id').val()+' in '+gameList[j].child('info/host/robe').val()+' robe.';
-				var instanceid = gameList[j].name();
-				$('#games').append("<li><button onclick='chooseGame("+j+")''>"+buttonText+"</button></li>");
-			}
-	
-		}
-
-		function chooseGame(num){
-			var newGame = userVar.child('games').set({gameList[num].name() : 'player'});
-			var currentGame = userVar.child('games/current').set(newGame.name());
-			firebaseVar.child('instances/'+currentGame.val()+'/info/player/id').set(auth.id);
-			gamerVar = firebaseVar.child('instances/'+currentGame.val()+'/info/player');
-
-			picRobe('games');
-
-		}
-
-		function myGames(){
-			$('#mygames').html("<ol id='listmygames'></ol>");
 			
-		}
-
-		function assignRobe(robe){
-			gamerVar.child('robe').set(robe);
-			$('#picrobe').html('<a href="play.html"><button>Lets Play then!</button></a>')
-
+		
 		}
 			
 			
