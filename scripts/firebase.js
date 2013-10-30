@@ -25,7 +25,8 @@
 	var instanceVar;
 	var gamerVar;
 	var chatVar;
-
+	var nGame;
+	var currentGame;
 
 	chatVar.on('child_added',function (snapshot) { 		
 								var message = snapshot.val();
@@ -33,30 +34,32 @@
 								addChatMessage(message);
 							});
 
-	firebaseVAr.child('instances').on('child_added',function (snapshot) {
-														if(!snapshot.child('player/id').exists()) {
-															gameList[i++] = snapshot;
+	firebaseVar.child('instances').on('child_added',function (snapshot) {
+														if(!snapshot.hasChild('info/player/id')) {
+															gameList[i++] = firebaseVar.child('instances/'+snapshot.val());
+															console.log('game '+i+' added');
 														}
 
-	})
+	});
+
 							
 	
+
 	
-							
-	$('#vitalrobe').click(assignRobe('vitality'));
-	$('#demonrobe').click(assignRobe('demonic'));
 	
 		function picRobe(id){
-			$('#'+id).html("<div id='picrobe'><button id='vitalrobe'> Weareth Vitality Robe </button><br/><button id='demonrobe'> Ja Demonic Robe </button></div>");
+			$('#'+id).html("<div id='picrobe'><button id='vitalrobe'> Weareth Vitality Robe </button><br/><button id='demonrobe'> Ja Demonic Robe </button></div><script> $('#vitalrobe').click(function () { assignRobe('vitality'); } ); $('#demonrobe').click(function () { assignRobe('demonic'); }); </script>");
 
 		}
 		
 		
 		function newGame(){
-			var newGame = userVar.child('games').push('host');
-			var currentGame = userVar.child('games/current').set(newGame.name());
-			firebaseVar.child('instances/'+currentGame.val()+'/info/host/id').set(auth.id);
-			gamerVar = firebaseVar.child('instances/'+currentGame.val()+'/info/host');
+			nGame = userVar.child('games').push('host');
+			currentGame = userVar.child('games/current');
+			currentGame.set(nGame.name());
+			
+			firebaseVar.child('instances/'+nGame.name()+'/info/host/id').set(userVar.name());
+			gamerVar = firebaseVar.child('instances/'+nGame.name()+'/info/host');
 			picRobe('newgame');
 		
 		}
@@ -72,10 +75,11 @@
 		}
 
 		function chooseGame(num){
-			var newGame = userVar.child('games').child(gameList[num].name()).set('player');
-			var currentGame = userVar.child('games/current').set(newGame.name());
-			firebaseVar.child('instances/'+currentGame.val()+'/info/player/id').set(auth.id);
-			gamerVar = firebaseVar.child('instances/'+currentGame.val()+'/info/player');
+			nGame = userVar.child('games').child(gameList[num].name()).set('player');
+			currentGame = userVar.child('games/current');
+			currentGame.set(nGame.name());
+			firebaseVar.child('instances/'+nGame.name()+'/info/player/id').set(auth.id);
+			gamerVar = firebaseVar.child('instances/'+nGame.name()+'/info/player');
 
 			picRobe('games');
 
@@ -87,7 +91,7 @@
 		}
 
 		function assignRobe(robe){
-			gamerVar.child('robe').set(robe);
+			gamerVar.child('robe').set(robe,alert('hello')); 
 			$('#picrobe').html('<a href="play.html"><button>Lets Play then!</button></a>')
 
 		}
@@ -110,3 +114,6 @@
 			});
 		}
 		
+
+	
+							
