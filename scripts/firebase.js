@@ -15,28 +15,22 @@
 																							}
 																		});
 	
-	var gameList = new Array();
+	var gameList = [];
 	var i = 0;
 	var j = 0;
-	var robes = firebaseVar.child('robes');
-	var spells = firebaseVar.child('spells');
+	
 
 	
-	var instanceVar;
+
 	var gamerVar;
-	var chatVar;
 	var nGame;
 	var currentGame;
 
-	chatVar.on('child_added',function (snapshot) { 		
-								var message = snapshot.val();
-								message = message.text;
-								addChatMessage(message);
-							});
+	
 
 	firebaseVar.child('instances').on('child_added',function (snapshot) {
 														if(!snapshot.hasChild('info/player/id')) {
-															gameList[i++] = firebaseVar.child('instances/'+snapshot.val());
+															gameList[i++] = snapshot;
 															console.log('game '+i+' added');
 														}
 
@@ -57,32 +51,32 @@
 			nGame = userVar.child('games').push('host');
 			currentGame = userVar.child('games/current');
 			currentGame.set(nGame.name());
-			
 			firebaseVar.child('instances/'+nGame.name()+'/info/host/id').set(userVar.name());
-			gamerVar = firebaseVar.child('instances/'+nGame.name()+'/info/host');
 			picRobe('newgame');
 		
 		}
 
 		function showGames(){
 			$('#joingame').html("<ol id='games'></ol>");
-			for(j=0;j<=i;j++) {
-				var buttonText = 'against '+gameList[j].child('info/host/id').val()+' in '+gameList[j].child('info/host/robe').val()+' robe.';
-				var instanceid = gameList[j].name();
+			for(j=0;j<i;j++) {
+				var buttonText = 'Against '+gameList[j].child('info/host/id').val()+' in '+gameList[j].child('info/host/robe').val()+' robe.';
+				
 				$('#games').append("<li><button onclick='chooseGame("+j+")''>"+buttonText+"</button></li>");
 			}
 	
 		}
 
 		function chooseGame(num){
-			nGame = userVar.child('games').child(gameList[num].name()).set('player');
-			currentGame = userVar.child('games/current');
-			currentGame.set(nGame.name());
-			firebaseVar.child('instances/'+nGame.name()+'/info/player/id').set(auth.id);
-			gamerVar = firebaseVar.child('instances/'+nGame.name()+'/info/player');
-
-			picRobe('games');
-
+			userVar.child('games').child(gameList[num].name()).set('player',function (error) {
+				if(!error) {
+					currentGame = userVar.child('games/current');
+					currentGame.set(gameList[num].name());
+					firebaseVar.child('instances/'+gameList[num].name()+'/info/player/id').set(userVar.name());
+					
+					picRobe('games');
+				}
+				else	alert('Oops! The game Exists!');
+			});
 		}
 
 		function myGames(){
@@ -92,21 +86,14 @@
 
 		function assignRobe(robe){
 			gamerVar.child('robe').set(robe,alert('hello')); 
-			$('#picrobe').html('<a href="play.html"><button>Lets Play then!</button></a>')
+			$('#picrobe').html('<a href="play.html"><button>Lets Play then!</button></a>');
 
 		}
 			
 			
 		
 				
-		function saveChatMessage(){
-			if($('#inputBox').val()){
-				var text = $('#inputBox').val();
-				chatVar.push({name: docGet('playerName').innerHTML,text: text});
-				$('#inputBox').val('');
-			}
-		}
-
+		
 		function authLogin(){
 			auth.login('password',{
 				email: $("#useremail").val(),
@@ -115,5 +102,11 @@
 		}
 		
 
-	
+		function authRegister() {
+			auth.createUser($("#useremail").val(), $("#userpasswd").val(), function(error, user) {
+  				if (!error) {
+    				console.log('User Id: ' + user.id + ', Email: ' + user.email);
+ 				}
+			});
+		}
 							

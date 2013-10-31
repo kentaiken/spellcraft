@@ -37,21 +37,7 @@ var chatScrollbarWrapper;
 		
 
 
-		function addChatMessage(message){
-
-						
-	  
-			var chat = docGet('chat')
-			var newMessage = document.createElement('span')	
-			newMessage.setAttribute("class",'ChatMessage')
-			newMessage.innerHTML = "<span class = 'SenderName'>" + docGet('playerName').innerHTML + " : </span> <span class ='ChatText'>"+ message + "</span> </br>"
-			chat.appendChild(newMessage)
-			newMessage.style.width = "100%"
-			setChatScroll()
-			chatScrollbar.scrollTo(0,docGet("chat").clientHeight)
-			
-
-		}
+		
 		function fixHeight(){
 			var container = docGet('container')
 			container.style.height = window.innerHeight - 85;
@@ -74,6 +60,7 @@ var chatScrollbarWrapper;
 				img.setAttribute("src", spells[spell]["img-url"])
 				img.setAttribute("onmouseover","select(this)")
 				img.setAttribute("onmouseout","deselect(this)")
+				img.setAttribute("onclick","cast('"+spell+"')")
 				spelist.appendChild(img)
 			}
 		}
@@ -87,7 +74,7 @@ var chatScrollbarWrapper;
 
 		function deselect(elm)
 		{
-			$(elm).fadeTo("fast","0.6")
+			$(elm).fadeTo("fast","0.6");
 		}
 		
 		//Implements a loading screen.
